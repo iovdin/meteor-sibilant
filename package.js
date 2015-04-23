@@ -1,7 +1,7 @@
 Package.describe({
   name: 'iovdin:sibilant',
   summary: "A lisp that compiles to javascript",
-  version: '0.0.1',
+  version: '0.0.2',
   git: 'https://github.com/iovdin/meteor-sibilant.git',
   documentation: 'README.md'
 });

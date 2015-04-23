@@ -1,5 +1,3 @@
-var fs = Npm.require('fs');
-var path = Npm.require('path');
 var sibilant = Npm.require('sibilant');
 
 handler = function (compileStep, isLiterate) {
@@ -7,7 +5,11 @@ handler = function (compileStep, isLiterate) {
     try{
         var jsCode = sibilant.translateAll(source);
         var outputFile = compileStep.inputPath + ".js";
-        fs.writeFileSync(outputFile, jsCode);
+        compileStep.addJavaScript({
+            path: outputFile,
+            sourcePath: compileStep.inputPath,
+            data: jsCode
+        });
     } catch(e){
         //throw new Error( compileStep.inputPath + ':' + e);
         throw new Error(
